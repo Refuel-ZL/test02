@@ -1,4 +1,16 @@
-const app = require('./app');
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const Koa = require("koa");
+const router = require("./routers");
+const bodyParser = require("koa-bodyparser");
+const logger = require("koa-logger");
+const app = new Koa();
+app.use(bodyParser());
+app.use(logger());
+app.use(router.routes());
+app.use(ctx => {
+    ctx.body = 'Hello world!';
+});
 const server = app.listen(3000, () => {
     console.log('Server is running at http://localhost:3000');
     console.log('Press CTRL-C to stop \n');

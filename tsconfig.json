@@ -2,10 +2,16 @@
     "compilerOptions": {
       "module": "commonjs",
       "target": "es2017",
-      "noImplicitAny": true,
+      "noImplicitAny": true,//进行强类型检查
       "moduleResolution": "node",
       "sourceMap": true,
       "outDir": "dist",
+      "declaration": true,//生成相应的.d.ts文件
+      "declarationDir": "./@types",
+      "preserveConstEnums": true,
+      "removeComments": true,//编译 js 的时候，删除掉注释
+      "experimentalDecorators":true,//启用实验性的ES装饰器。
+      "emitDecoratorMetadata": true,//给源码里的装饰器声明加上设计类型元数据。
       "baseUrl": ".",
       "paths": {
         "*": [
@@ -18,6 +24,7 @@
       "src/**/*"
     ],
     "exclude": [
-      "node_modules"
+      "node_modules",
+      "dist"
     ]
   }
